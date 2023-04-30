@@ -8,14 +8,15 @@
 	<div id="header">
 		<div id="loading">
 			<div class="spinner"></div>
-		  </div>
+		</div>
 	<h1>ToDo List</h1>
 	</div>
 	<input type="text" id="taskInput" placeholder="Add new task...">
-	<button onclick="addTask()">Add</button>
-	<button id="toggleButton" onclick="toggleList()">Show List</button>
-	<ul id="taskList" style="display: none;">
+	<button id="addButton">Add</button>
+	<button id="toggleButton">Show List</button>
+	<ul id="tasksList" style="display: none;">
 	</ul>
-	<script src="script.js"></script>
+	<script src="helpers.js"></script>
+	<script src="tasks.js"></script>
 </body>
 </html>
