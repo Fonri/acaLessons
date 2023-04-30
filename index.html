@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ToDo List</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="header">
+		<div id="loading">
+			<div class="spinner"></div>
+		  </div>
+	<h1>ToDo List</h1>
+	</div>
+	<input type="text" id="taskInput" placeholder="Add new task...">
+	<button onclick="addTask()">Add</button>
+	<button id="toggleButton" onclick="toggleList()">Show List</button>
+	<ul id="taskList" style="display: none;">
+	</ul>
+	<script src="script.js"></script>
+</body>
+</html>
