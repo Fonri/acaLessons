@@ -52,13 +52,13 @@ li {
 .completed {
     text-decoration: line-through;
     color: rgb(39, 39, 39);
-    background-color: rgba(0, 182, 0, 0.801);
+    background-color: rgba(0, 182, 0, 0.74);
   }
 
 
 body ul li {
     border: 1px;
-    background-color: #ff0000;
+    background-color: #ff0000b9;
     color: black;
     border-radius: 4px;
     margin-bottom: 4px;
@@ -96,4 +96,14 @@ body ul li {
   }
 
 
+  .search-task {
+    margin-bottom: 20px;
+  }
+  
+  .search-task input {
+    width: 20%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+  }
   
