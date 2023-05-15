@@ -7,20 +7,27 @@
 <body>
 	<div id="header">
 		<h1>ToDo List</h1>
+		<div id="loading">
+			<div class="spinner"></div>
+		</div>
 		<div class="search-task">
 			<input type="text" id="searchInput" placeholder="Search tasks...">
 			<button id="searchButton">Search</button>
 		  </div>
-		<div id="loading">
-			<div class="spinner"></div>
+		<div id="weather-container">
+			<span id="temperature"></span>
+			<span id="weather-description"></span>
 		</div>
 	</div>
+			</div>
 	<input type="text" id="taskInput" placeholder="Add new task...">
 	<button id="addButton">Add</button>
 	<button id="toggleButton">Show List</button>
 	<ul id="tasksList" style="display: none;">
 	</ul>
+	<script src="style.css"></script>
 	<script src="helpers.js"></script>
 	<script src="tasks.js"></script>
+	<script src="weather.js"></script>
 </body>
 </html>
