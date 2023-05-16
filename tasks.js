@@ -1,8 +1,25 @@
 function handleTaskClick(e) {
   const currentTask = e.currentTarget;
+  const currentTaskId = currentTask.getAttribute("data-id");
+
+  if (e.target.classList.contains("edit-button")) {
+    const taskContentElement = currentTask.querySelector(".task-content");
+    const editButton = currentTask.querySelector(".edit-button");
+
+    if (taskContentElement.isContentEditable) {
+      taskContentElement.contentEditable = false;
+      editButton.textContent = "Edit";
+      updateTaskText(currentTaskId, taskContentElement.textContent);
+    } else {
+      taskContentElement.contentEditable = true;
+      taskContentElement.focus();
+      editButton.textContent = "Save";
+    }
+
+    return;
+  }
 
   currentTask.classList.toggle("completed");
-  const currentTaskId = currentTask.getAttribute("data-id");
 
   const tasks = getTasksFromLocalStorage();
 
@@ -17,6 +34,43 @@ function handleTaskClick(e) {
 
   setTasksToLocalStorage(updatedTasks);
 }
+
+function updateTaskText(taskId, newText) {
+  const tasks = getTasksFromLocalStorage();
+
+  const updatedTasks = tasks.map((task) =>
+    task.id === taskId
+      ? {
+          ...task,
+          textContent: newText,
+        }
+      : task
+  );
+
+  setTasksToLocalStorage(updatedTasks);
+}
+
+function createNewTask(task) {
+  const taskElement = document.createElement("li");
+  taskElement.setAttribute("data-id", task.id);
+  taskElement.className = task.isCompleted ? "completed" : "";
+
+  const taskContent = document.createElement("span");
+  taskContent.className = "task-content";
+  taskContent.textContent = task.textContent;
+
+  const editButton = document.createElement("button");
+  editButton.className = "edit-button";
+  editButton.textContent = "Edit";
+
+  taskElement.appendChild(taskContent);
+  taskElement.appendChild(editButton);
+
+  taskElement.addEventListener("click", handleTaskClick);
+
+  return taskElement;
+}
+
 
 async function addTask() {
   const input = document.getElementById("taskInput");
@@ -110,4 +164,3 @@ async function handleSearchClick() {
 const searchButton = document.getElementById("searchButton");
 
 searchButton.addEventListener("click", handleSearchClick);
-
