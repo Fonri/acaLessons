@@ -31,7 +31,7 @@ function createNewTask({ id, isCompleted, textContent, onClick, }) {
 }
 
 
-const searchInput = document.getElementById("searchInput");
+const searchInput = document.getElementById("searchInput");          // Кастыль
 
 searchInput.addEventListener("keydown", function(e) {
   if (e.key === "Enter") {
